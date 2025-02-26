@@ -8,9 +8,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.widget.Toast
+
 
 class MainActivity : AppCompatActivity() {
 
+
+    lateinit var usernameInput : EditText
+    lateinit var passwordInput : EditText
+    lateinit var loginBtn : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,5 +27,24 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        usernameInput = findViewById(R.id.username_input)
+        passwordInput = findViewById(R.id.password_input)
+        loginBtn = findViewById(R.id.login_btn)
+
+        loginBtn.setOnClickListener {
+            val username = usernameInput.text.toString()
+            val password = passwordInput.text.toString()
+
+            if (username == "jakwan" && password == "12345") {
+                Toast.makeText(this, "Login Berhasil!", Toast.LENGTH_SHORT).show()
+                Log.i("Login Status", "Login Berhasil")
+            } else {
+                Toast.makeText(this, "Login Gagal! Username atau password salah.", Toast.LENGTH_SHORT).show()
+                Log.e("Login Status", "Login Gagal: Username atau password salah")
+            }
+        }
+
+
     }
 }
