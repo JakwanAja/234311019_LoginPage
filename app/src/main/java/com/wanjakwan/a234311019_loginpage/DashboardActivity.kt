@@ -18,7 +18,8 @@ class DashboardActivity : AppCompatActivity() {
         logoutBtn.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            finish() // Menutup halaman dashboard agar tidak bisa kembali ke sini setelah logout
+            finish() // Menutup halaman dashboard
         }
     }
 }
+// done at 27/02/2025 01.26
