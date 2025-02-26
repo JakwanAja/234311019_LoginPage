@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import android.widget.Toast
-
+import android.content.Intent
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,13 +38,13 @@ class MainActivity : AppCompatActivity() {
 
             if (username == "jakwan" && password == "12345") {
                 Toast.makeText(this, "Login Berhasil!", Toast.LENGTH_SHORT).show()
-                Log.i("Login Status", "Login Berhasil")
+
+                val intent = Intent(this, DashboardActivity::class.java)
+                startActivity(intent)
+                finish() // Menutup halaman login
             } else {
                 Toast.makeText(this, "Login Gagal! Username atau password salah.", Toast.LENGTH_SHORT).show()
-                Log.e("Login Status", "Login Gagal: Username atau password salah")
             }
         }
-
-
     }
 }
